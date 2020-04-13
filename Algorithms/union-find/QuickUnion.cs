@@ -19,7 +19,7 @@
         {
             while (p != id[p])
             {
-                id[p] = id[id[p]]; // 压缩路径，使树高度再次降低
+                // id[p] = id[id[p]]; 压缩路径，使树高度再次降低
                 p = id[p];
             }
             return p;
