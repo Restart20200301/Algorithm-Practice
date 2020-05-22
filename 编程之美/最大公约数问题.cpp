@@ -12,7 +12,7 @@ int gcd2(int x, int y) {
     if (y == 0)
         return x;
     else
-        return gcd(x - y, y);
+        return gcd2(x - y, y);
 }
 
 // (3)
