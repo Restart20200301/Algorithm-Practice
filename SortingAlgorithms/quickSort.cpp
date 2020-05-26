@@ -23,7 +23,7 @@ void quickSort(Type* data, int low, int high) {
 
 template<typename Type>
 void quickSort(Type* data, int n) {
-    quickSort(data, 0, 14);
+    quickSort(data, 0, n - 1);
 }
 
 int main() {
