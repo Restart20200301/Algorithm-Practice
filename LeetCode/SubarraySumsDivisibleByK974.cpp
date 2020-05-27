@@ -34,3 +34,19 @@ public:
         return cnt;
     }
 };
+
+int subarraysDivByK(int* A, int ASize, int K){
+    int data[30000];
+    int cnt, sum, i;
+
+    memset(data, 0, sizeof(data));
+    data[0] = 1;
+    cnt = sum = 0;
+
+    for (i = 0; i < ASize; i++) {
+        sum += A[i];
+        cnt += data[(sum % K + K) % K]++;
+    }
+
+    return cnt;
+}
