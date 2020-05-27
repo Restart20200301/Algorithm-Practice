@@ -38,7 +38,7 @@ int main() {
 	int *data = new int[1024];
 	for (int i = 0; i < 1024; i++) data[i] = -1;
 	cout << Fibonacci2(n, data) << endl;
-	delete data;
+	delete[] data;
 	cout << Fibonacci3(n) << endl;
 	return 0;
 }
