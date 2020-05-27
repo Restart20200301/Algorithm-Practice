@@ -25,7 +25,7 @@
     while (x) {
         int t = x % 10;
         if (res > INT_MAX / 10 || (res == INT_MAX / 10 && t > 7)) return 0;
-        if (res < INT_MIN / 10 || (res == INT_MIN / 10 && t > 8)) return 0;
+        if (res < INT_MIN / 10 || (res == INT_MIN / 10 && t < -8)) return 0;
         x /= 10;
         res = 10 * res + t;
     }
