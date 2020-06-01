@@ -1,12 +1,12 @@
 using System;
 using Hugo;
 
-public class MaxPq<TKey> where TKey: IComparable<TKey>
+public class MaxPQ<TKey> where TKey: IComparable<TKey>
 {
     private TKey[] _pq;
     private int _n = 0;
 
-    public MaxPq(int max)
+    public MaxPQ(int max)
     {
         _pq = new TKey[max + 1];
     }
