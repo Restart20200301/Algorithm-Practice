@@ -47,3 +47,36 @@ void numArrayFree(NumArray* obj) {
  
  * numArrayFree(obj);
 */
+
+// 更加正规的写法。（还可以加入范围判断在其中）
+typedef struct {
+    int size;
+    int data[0];
+} NumArray;
+
+
+NumArray* numArrayCreate(int* nums, int numsSize) {
+    NumArray* arr = malloc(sizeof(NumArray) + sizeof(int) * numsSize);
+    memcpy(arr->data, nums, numsSize * sizeof(int));
+    arr->size = numsSize;
+    return arr;
+}
+
+int numArraySumRange(NumArray* obj, int i, int j) {
+    int sum = 0;
+    for (int pos = i; pos <= j; pos++)
+        sum += (obj->data)[pos];
+    return sum;
+}
+
+void numArrayFree(NumArray* obj) {
+    free(obj);
+}
+
+/**
+ * Your NumArray struct will be instantiated and called as such:
+ * NumArray* obj = numArrayCreate(nums, numsSize);
+ * int param_1 = numArraySumRange(obj, i, j);
+ 
+ * numArrayFree(obj);
+*/
