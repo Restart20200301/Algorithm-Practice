@@ -40,3 +40,16 @@ int mySqrt(int x) {
 
 
 // 牛顿迭代法
+// f(x) = x ^ 2 - C
+// f'(x) = 2x
+// 设 x = Xn: f(Xn) = Xn ^ 2 - C
+// 切线方程: f(x) - f(Xn) = 2Xn(x - Xn) ==> f(x) = 2Xn * x - Xn ^ 2 - C
+// 迭代方程: Xn+1 = (Xn + C / Xn) / 2
+
+int mySqrt(int x) {
+    double ans = x;
+    while (fabs(x - ans * ans) > 0.00001) {
+        ans = (ans + x / ans) / 2;
+    }
+    return (int)ans;
+}
