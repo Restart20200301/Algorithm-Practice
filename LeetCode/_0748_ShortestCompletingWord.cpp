@@ -38,7 +38,7 @@
 class Solution {
 public:
     string shortestCompletingWord(string licensePlate, vector<string>& words) {
-        char hash[26] = { 0 };
+        int hash[26] = { 0 };
         for (auto& c : licensePlate) {
             if (isalpha(c)) {
                 hash[tolower(c) - 'a']++;
@@ -55,8 +55,8 @@ public:
         return ans;
     }
 private:
-    bool matches(const string& word, char* hash) {
-        char hash2[26] = { 0 };
+    bool matches(const string& word, int* hash) {
+        int hash2[26] = { 0 };
         for (auto& c : word) {
             hash2[tolower(c) - 'a']++;
         }
