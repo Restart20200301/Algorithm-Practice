@@ -49,7 +49,7 @@ public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         vector<int> ans;
         for (auto& asteroid : asteroids) {
-            if (ans.empty() || (ans.back() < 0 && asteroid < 0) || asteroid > 0) { ans.push_back(asteroid); continue; }
+            if (ans.empty() || ans.back() < 0 || asteroid > 0) { ans.push_back(asteroid); continue; }
             while (!ans.empty() && ans.back() > 0) {
                 if (ans.back() < -asteroid) ans.pop_back();
                 else break;
