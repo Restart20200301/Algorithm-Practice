@@ -26,13 +26,21 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+// 算法思路:用负数来标记已存在的数字
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        unordered_set s(nums.begin(), nums.end());
-        for (decltype(nums.size()) i = 1, len = nums.size(); i <= len + 1; i++) {
-            if (s.find(i) == s.end()) return i;
+        int n = nums.size();
+        for (auto& i : nums)
+            if (i <= 0) i = n + 1;
+        for (auto& i : nums) {
+            if (abs(i) <= n) {
+                int num = abs(i) - 1;
+                nums[num] = -abs(nums[num]);
+            }
         }
-        return 0;
+        for (int i = 0; i < n; i++)
+            if (nums[i] > 0) return i + 1;
+        return n + 1;
     }
 };
